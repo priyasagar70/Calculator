@@ -1,0 +1,128 @@
+/* Reset default styles: removes default browser spacing and sets box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Use a modern Google font for a clean design */
+    font-family: 'Inter', sans-serif;
+}
+
+/* Base body styles */
+body {
+    /* A soft dynamic animated linear gradient background */
+    background: linear-gradient(-45deg, #1e1e2f, #2a2a40, #362f4b, #201a35);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+
+    /* Center the calculator on the screen using Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    padding: 20px; /* Padding for mobile screens */
+}
+
+/* Background animation logic */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* The main container for the calculator */
+.calculator {
+    /* Glassmorphism effect: semi-transparent with a background blur */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 24px;   /* Rounded corners */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
+    backdrop-filter: blur(10px); /* Blurs the background behind container */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Responsive width */
+    width: 100%;
+    max-width: 340px; 
+}
+
+/* The screen displaying inputs and results */
+.display {
+    width: 100%;
+    height: 80px;
+    /* Dark semi-transparent background */
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 3rem; /* Large text */
+    text-align: right;
+    padding: 15px;
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+}
+
+/* Placeholder text color */
+.display::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* CSS Grid for arranging building elements into a 4-column layout */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    grid-gap: 12px; /* Space between buttons */
+}
+
+/* Base button styles */
+.btn {
+    border: none;
+    border-radius: 12px;
+    padding: 20px 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    /* Smooth transition for hover effects */
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover slightly brightens the button and raises it */
+.btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Click effect presses the button slightly inwards */
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Different color styles for operator buttons to distinguish them */
+.operator {
+    background: #ff9f0a; /* Bright orange */
+    font-weight: 600;
+}
+.operator:hover {
+    background: #ffa826;
+}
+
+/* The equals button has a distinct green color */
+.equals {
+    background: #32d74b;
+    font-weight: 600;
+}
+.equals:hover {
+    background: #4ade62;
+}
+
+/* The clear button has a distinct red color */
+.clear {
+    background: #ff453a;
+    font-weight: 600;
+}
+.clear:hover {
+    background: #ff5b52;
+}
